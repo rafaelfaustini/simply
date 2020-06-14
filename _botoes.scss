@@ -1,0 +1,41 @@
+@mixin botao(
+    $nome,
+    $fundo,
+    $texto: color-contrast($fundo),
+){
+    .bt-#{$nome}{
+        background-color: $fundo;
+        border-radius: 5px;
+        &:hover{
+            transform: translateY(-1px);
+            background-color: darken($fundo, 10);
+            box-shadow: 0 2px 10px rgba(0,0,0,.2);
+        }
+        &:active{
+            transform: translateY(-1px);
+            box-shadow: 0 2px 10px rgba(0,0,0,.2);
+
+        }
+    }
+
+}
+
+@mixin bt{
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    outline: none;
+    border: 0;
+    padding: 1vh 1vw 1vh 1vw;
+    display: block;
+    transition: background-color 200ms linear;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, .5);
+}
+.bt-claro{
+    color: rgb(26, 26, 26);
+    @include bt;
+}
+.bt-escuro{
+    color: white;
+    @include bt;
+}
